@@ -1,0 +1,56 @@
+#include <stdio.h>
+int main() 
+{
+    int i,j,r,c,sum;
+    int a[10][10];
+    int b[10][10];
+    int z[10][10];
+    printf("Enter the Number of rows and columns:\n");
+    scanf("%d%d",&r,&c);
+    
+     printf("\nEnter any  Matrix");
+     for(i=0;i<r;i++)
+     {
+         for(j=0;j<c;j++)
+         {
+             scanf("%d",&a[i][j]);
+         }printf("\n");
+     }
+     printf("\nEntered matrix is \n");
+
+     for(i=0;i<r;i++)
+     {
+         for(j=0;j<c;j++)
+         {
+             printf("%d \t",a[i][j]);
+         }printf("\n");
+     }printf("\n");
+
+     printf("\nEnter any  Matrix");
+
+     for(i=0;i<r;i++)
+     {
+         for(j=0;j<c;j++)
+         {
+             scanf("%d",&b[i][j]);
+         }printf("\n");
+     }
+     printf("\nEntered matrix is \n");
+
+     for(i=0;i<r;i++)
+     {
+         for(j=0;j<c;j++)
+         {
+             printf("%d \t",a[i][j]);
+         }printf("\n");
+     }printf("\n");
+    
+    printf("\nFinal matrix is \n");
+     for(i=0;i<r;i++)
+     {
+         for(j=0;j<c;j++)
+         {  z[i][j]=a[i][j]-b[i][j];
+             printf(" %d \t",z[i][j]);
+         }printf("\n");
+     }printf("\n");
+}
