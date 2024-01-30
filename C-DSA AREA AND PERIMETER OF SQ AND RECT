@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+int main()
+{
+    int ch;
+    float ar,l,b,s,pe;
+    
+        printf("\n 1.Calculate area of Rectangle\n");
+        printf("\n 2.Calculate area of Square\n");
+        printf("\n 3.Calculate Perimeter of Rectangle\n");
+       
+        
+        printf("\nEnter your choice\n");
+        scanf("%d",&ch);
+        
+        
+        switch(ch)
+        {
+            case 1 : printf("\n Enter the value of length and width of rectangle\n :");
+            scanf("%f%f",&l,&b);
+            ar = l * b;
+            printf("Area of Rectangle is %f sqm",ar);
+            break;
+            
+            case 2 : printf("\n Enter the value of Side of Square\n :");
+            scanf("%f",&s);
+            
+            ar = s * s;
+            printf("The Area is Square is %f sqm",ar);
+            break;
+            
+            case 3 : printf("\n Enter the value of length and width of rectangle\n :");
+            scanf("%f%f",&l,&b);
+            
+            pe = 2 *(l +b);
+            printf("The Perimeter of Rectangle is %f units",pe);
+            break;
+
+            
+        }
+}  
+  
