@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+int main()
+{
+    int a[10][10];
+    int b[10][10];
+    int i,j,size;
+    
+    printf("Enter the Size of array :\n");
+    scanf("%d",&size);
+    
+    printf("Enter the Elements for array A:\n");
+    for(i=0;i<size;i++)
+    {
+        for(j=0;j<size;j++)
+        {
+            scanf("%d",&a[i][j]);
+        }
+    }
+    
+    printf("Entered the Elements for array A are:\n");
+    for(i=0;i<size;i++)
+    {
+        for(j=0;j<size;j++)
+        {
+            printf("%d \t",a[i][j]);
+        }printf("\n");
+    }printf("\n");
+    
+
+    for(i=0;i<size;i++)
+    {
+        for(j=0;j<size;j++)
+        {
+            b[i][j]=a[i][j]*a[i][j]*a[i][j];
+        }
+    }
+    
+    printf("\ncube of  Elements for array A are:\n");
+    for(i=0;i<size;i++)
+    {
+        for(j=0;j<size;j++)
+        {
+            printf("%d \t \t",b[i][j]);
+        }printf("\n");
+    }printf("\n");
+}
