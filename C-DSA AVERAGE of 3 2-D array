@@ -1,0 +1,84 @@
+#include <stdio.h>
+
+int main()
+{
+    int a[10][10];
+    int b[10][10];
+    int h[10][10];
+    int z[10][10];
+    int i,j,size;
+    
+    printf("Enter the Size of array :\n");
+    scanf("%d",&size);
+    
+    printf("Enter the Elements for array A:\n");
+    for(i=0;i<size;i++)
+    {
+        for(j=0;j<size;j++)
+        {
+            scanf("%d",&a[i][j]);
+        }
+    }
+    
+    printf("Entered the Elements for array A are:\n");
+    for(i=0;i<size;i++)
+    {
+        for(j=0;j<size;j++)
+        {
+            printf("%d \t",a[i][j]);
+        }printf("\n");
+    }printf("\n");
+   
+    printf("Enter the Elements for array B:\n");
+    for(i=0;i<size;i++)
+    {
+        for(j=0;j<size;j++)
+        {
+            scanf("%d",&b[i][j]);
+        }
+    }
+    
+    printf("Entered the Elements for array B are:\n");
+    for(i=0;i<size;i++)
+    {
+        for(j=0;j<size;j++)
+        {
+            printf("%d \t",b[i][j]);
+        }printf("\n");
+    }printf("\n");
+    
+    printf("Enter the Elements for array H:\n");
+    for(i=0;i<size;i++)
+    {
+        for(j=0;j<size;j++)
+        {
+            scanf("%d",&h[i][j]);
+        }
+    }
+    
+    printf("Entered the Elements for array H are:\n");
+    for(i=0;i<size;i++)
+    {
+        for(j=0;j<size;j++)
+        {
+            printf("%d \t",h[i][j]);
+        }printf("\n");
+    }printf("\n");
+
+    for(i=0;i<size;i++)
+    {
+        for(j=0;j<size;j++)
+        {
+            z[i][j]=(a[i][j]+b[i][j]+h[i][j]) / 3;
+        }
+    }
+    
+    printf("\nAverage of  Elements for array A,B,H are:\n");
+    for(i=0;i<size;i++)
+    {
+        for(j=0;j<size;j++)
+        {
+            printf("%d\t \t",z[i][j]);
+        }printf("\n");
+    }printf("\n");
+}
