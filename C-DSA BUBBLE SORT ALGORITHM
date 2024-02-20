@@ -42,7 +42,7 @@ void printArray(int arr[], int size)
 int main()
 {   int i;
     int arr[10];
-    printf("Enter the elements :\n");
+    printf("Enter any 10 elements to be sorted :\n");
     for(i=0;i<10;i++)
     {
         scanf("%d",&arr[i]);
