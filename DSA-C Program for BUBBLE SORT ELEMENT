@@ -1,0 +1,52 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+void display(int a[], int n);
+void bubble_sort(int a[], int n);
+
+int main()
+{
+   int n, choice, i;
+
+   while (1)
+   {
+      printf("\nEnter no. of elements : ");
+      scanf("%d", &n);
+      int arr[n];
+      for (i = 0; i < n; i++)
+      {
+         printf("Enter %d Element : ", i + 1);
+         scanf("%d", &arr[i]);
+      }
+      bubble_sort(arr, n);
+   }
+
+   return 0;
+}
+
+void display(int arr[], int n)
+{
+   for (int i = 0; i < n; i++)
+   {
+      printf(" %d ", arr[i]);
+   }
+}
+
+void bubble_sort(int arr[], int n)
+{
+   int i, j, temp;
+   for (i = 0; i < n; i++)
+   {
+      for (j = 0; j < n - i - 1; j++)
+      {
+         if (arr[j] > arr[j + 1])
+         {
+            temp = arr[j];
+            arr[j] = arr[j + 1];
+            arr[j + 1] = temp;
+         }
+      }
+   }
+   printf("Bubble sorted Elements are : ");
+   display(arr, n);
+}
