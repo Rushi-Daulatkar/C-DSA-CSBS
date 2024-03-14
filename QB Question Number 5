@@ -1,0 +1,61 @@
+Ques 5]		Imagine a scenario in a restaurant where there is an array of dish names along with the number of times each dish has been ordered. Design a problem statement instructing to implement a suitable algorithm to sort these dishes in descending order of popularity, where each dish is represented by its name and the number of times it has been ordered.
+
+
+#include <stdio.h>
+#include <string.h>
+
+// Structure to represent a dish
+struct Dish {
+    char name[50];
+    int popularity;
+};
+
+// Function to perform Selection Sort on array of dishes in ascending order
+void selectionSortDishes(struct Dish dishes[], int n) {
+    int i, j, min_idx;
+
+    // Iterate through the array
+    for (i = 0; i < n-1; i++) {
+        // Find the dish with the lowest popularity in the unsorted part
+        min_idx = i;
+        for (j = i+1; j < n; j++) {
+            if (dishes[j].popularity < dishes[min_idx].popularity)
+                min_idx = j;
+        }
+        // Swap the found minimum popularity dish with the first dish
+        struct Dish temp = dishes[min_idx];
+        dishes[min_idx] = dishes[i];
+        dishes[i] = temp;
+    }
+}
+
+int main() {
+    // Define dish names
+    char *dish_names[] = {"Samosa", "Sambhar Vada", "Ice Cream"};
+    int num_dishes = sizeof(dish_names) / sizeof(dish_names[0]);
+
+    // Input popularity of each dish
+    struct Dish dishes[num_dishes];
+    for (int i = 0; i < num_dishes; i++) {
+        strcpy(dishes[i].name, dish_names[i]);
+        printf("Enter popularity of %s: ", dishes[i].name);
+        scanf("%d", &dishes[i].popularity);
+    }
+
+    // Perform Selection Sort in ascending order
+    selectionSortDishes(dishes, num_dishes);
+
+    // Output sorted array of popularity
+    printf("\nSorted Dishes (Popularity in Ascending Order):\n");
+    printf("[ ");
+    for (int i = 0; i < num_dishes; i++) {
+        printf("%d", dishes[i].popularity);
+        if (i < num_dishes - 1)
+            printf(", ");
+    }
+    printf(" ]\n");
+
+    return 0;
+}
+
+
