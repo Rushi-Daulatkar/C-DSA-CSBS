@@ -1,0 +1,111 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// Define the structure for a doubly linked list node
+struct node {
+    int data;
+    struct node* next;
+    struct node* prev;
+};
+
+// Initialize head and tail pointers
+struct node* head = NULL;
+struct node* tail = NULL;
+
+// Function to create a new node
+struct node* create_node(int data) {
+    struct node* new_node = (struct node*)malloc(sizeof(struct node));
+    if (new_node == NULL) {
+        printf("Memory allocation failed!\n");
+        exit(1);
+    }
+    new_node->data = data;
+    new_node->next = NULL;
+    new_node->prev = NULL;
+    return new_node;
+}
+
+// Function to insert a node at the head
+void insert_at_head(int data) {
+    struct node* new_node = create_node(data);
+    if (head == NULL) {
+        head = new_node;
+        tail = new_node;
+    } else {
+        new_node->next = head;
+        head->prev = new_node;
+        head = new_node;
+    }
+}
+
+// Function to delete a node from the head
+void delete_at_head() {
+    if (head == NULL) {
+        printf("List is empty. Cannot delete.\n");
+        return;
+    }
+    struct node* temp = head;
+    head = head->next;
+    if (head != NULL) {
+        head->prev = NULL;
+    }
+    free(temp);
+}
+
+// Function to display the doubly linked list in forward order
+void display_forward() {
+    struct node* current = head;
+    while (current != NULL) {
+        printf("%d ", current->data);
+        current = current->next;
+    }
+    printf("\n");
+}
+
+// Function to display the doubly linked list in backward order
+void display_backward() {
+    struct node* current = tail;
+    while (current != NULL) {
+        printf("%d ", current->data);
+        current = current->prev;
+    }
+    printf("\n");
+}
+
+int main() {
+    int choice, data;
+
+    while (1) {
+        printf("\nMenu:\n");
+        printf("1. Insert\n");
+        printf("2. Delete\n");
+        printf("3. Display\n");
+        printf("4. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                printf("Enter the element to insert: ");
+                scanf("%d", &data);
+                insert_at_head(data);
+                break;
+            case 2:
+                delete_at_head();
+                break;
+            case 3:
+                printf("Doubly linked list (forward): ");
+                display_forward();
+                printf("Doubly linked list (backward): ");
+                display_backward();
+                break;
+            case 4:
+                printf("Exiting program. Goodbye!\n");
+                exit(0);
+            default:
+                printf("Invalid choice. Please try again.\n");
+        }
+    }
+
+    return 0;
+}
