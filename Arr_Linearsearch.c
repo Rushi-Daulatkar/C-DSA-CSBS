@@ -15,7 +15,7 @@ int main()
         if(a[i]==num)
         {
             printf("\n Search is Successful ");
-            pos=i;
+            pos=i+1;
             flag=1;
             printf("\n Element is present at position %d",pos);
             break;
